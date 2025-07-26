@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RØ DESIGN & JEWELRY</title>
+    <!-- Fuentes Google: serif para titulares y sans serif para cuerpo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome para iconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Barra superior con mensaje -->
+    <div class="top-bar">
+      <p>No vendemos joyas – vendemos energía</p>
+    </div>
+    <!-- Navegación principal -->
+    <nav class="main-nav">
+      <div class="logo-container">
+        <img src="logo.png" alt="Logotipo RØ" class="logo" />
+        <span class="brand-name">RØ DESIGN & JEWELRY</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#categorias">Energías</a></li>
+        <li><a href="#favoritos">Favoritos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <!-- Sección hero -->
+    <header id="inicio" class="hero">
+      <div class="hero-content">
+        <h1>Joyas con energía</h1>
+        <p>
+          Encuentra el anillo que no sólo completa tu look, sino que transforma
+          cómo te sientes
+        </p>
+        <a href="#categorias" class="btn">Explorar energías</a>
+      </div>
+    </header>
+    <!-- Sección de categorías o energías -->
+    <section id="categorias" class="energy-section">
+      <h2>Elige la energía que deseas</h2>
+      <div class="energy-grid">
+        <!-- Cada tarjeta representa una piedra o categoría. Las imágenes son placeholders y se pueden sustituir -->
+        <div class="energy-card reveal">
+          <div class="energy-icon">
+            <img src="placeholder_light_gray_block.png" alt="Intuición" />
+          </div>
+          <h3>Intuición</h3>
+          <p>Labradorita</p>
+        </div>
+        <div class="energy-card reveal">
+          <div class="energy-icon">
+            <img src="placeholder_light_gray_block.png" alt="Fuerza" />
+          </div>
+          <h3>Fuerza</h3>
+          <p>Obsidiana</p>
+        </div>
+        <div class="energy-card reveal">
+          <div class="energy-icon">
+            <img src="placeholder_light_gray_block.png" alt="Positividad" />
+          </div>
+          <h3>Positividad</h3>
+          <p>Ópalo</p>
+        </div>
+        <div class="energy-card reveal">
+          <div class="energy-icon">
+            <img src="placeholder_light_gray_block.png" alt="Autoamor" />
+          </div>
+          <h3>Autoamor</h3>
+          <p>Cuarzo Rosa</p>
+        </div>
+        <div class="energy-card reveal">
+          <div class="energy-icon">
+            <img src="placeholder_light_gray_block.png" alt="Tranquilidad" />
+          </div>
+          <h3>Tranquilidad</h3>
+          <p>Amatista</p>
+        </div>
+        <div class="energy-card reveal">
+          <div class="energy-icon">
+            <img src="placeholder_light_gray_block.png" alt="Voluntad" />
+          </div>
+          <h3>Voluntad</h3>
+          <p>Ónix Negro</p>
+        </div>
+      </div>
+    </section>
+    <!-- Sección de favoritos o más queridos -->
+    <section id="favoritos" class="favorites-section dark-section">
+      <h2>Diseños más queridos</h2>
+      <div class="slider-container">
+        <button class="slider-btn left" aria-label="Anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="slider-track">
+          <!-- Tarjeta de producto -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="placeholder_light_gray_block.png" alt="Diseño 1" />
+            </div>
+            <h4>Anillo Flow</h4>
+            <span class="price">S/ 450</span>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="placeholder_light_gray_block.png" alt="Diseño 2" />
+            </div>
+            <h4>Anillo Stardust</h4>
+            <span class="price">S/ 520</span>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="placeholder_light_gray_block.png" alt="Diseño 3" />
+            </div>
+            <h4>Anillo Hero</h4>
+            <span class="price">S/ 480</span>
+          </div>
+          <!-- Copias adicionales para hacer scroll -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="placeholder_light_gray_block.png" alt="Diseño 4" />
+            </div>
+            <h4>Anillo Grace</h4>
+            <span class="price">S/ 500</span>
+          </div>
+        </div>
+        <button class="slider-btn right" aria-label="Siguiente">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="favorites-cta">
+        <a href="#categorias" class="btn secondary">Ver todos</a>
+      </div>
+    </section>
+    <!-- Sección destacada de colección -->
+    <section class="collection-highlight">
+      <div class="collection-content">
+        <h2>Nueva Colección</h2>
+        <p>Conecta con la energía de tu piedra y descubre diseños únicos.</p>
+        <a href="#categorias" class="btn">Ver Colección</a>
+      </div>
+    </section>
+    <!-- Sección sobre nosotros -->
+    <section id="nosotros" class="about-section light-section">
+      <h2>Sobre Nosotros</h2>
+      <div class="about-content">
+        <p>
+          En RØ Design & Jewelry unimos tradición y tecnología para crear joyas
+          personalizadas en Lima, Perú. Nuestro equipo utiliza diseño 3D y
+          herramientas de inteligencia artificial para transformar tus ideas en
+          piezas que cuentan historias. Cada creación se elabora con materiales
+          éticos y reciclados, honrando nuestro compromiso con la sostenibilidad.
+        </p>
+      </div>
+    </section>
+    <!-- Sección de contacto -->
+    <section id="contacto" class="contact-section dark-section">
+      <h2>Contacto</h2>
+      <p>Agenda tu consulta personalizada o solicita más información:</p>
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:ro.joyeria3d@gmail.com">ro.joyeria3d@gmail.com</a></li>
+        <li>WhatsApp: <a href="https://wa.me/51912832005" target="_blank">+51 912 832 005</a></li>
+        <li>Instagram: <a href="https://www.instagram.com/rojewelry3d/" target="_blank">@rojewelry3d</a></li>
+        <li>Ubicación: La Molina, Lima – atendemos a todo Perú e internacionalmente</li>
+      </ul>
+    </section>
+    <!-- Pie de página -->
+    <footer>
+      <p>© 2025 RØ Design & Jewelry. Todos los derechos reservados.</p>
+    </footer>
+    <!-- Botón de volver arriba -->
+    <button id="backToTop" aria-label="Volver arriba">↑</button>
+    <script src="script.js"></script>
+  </body>
+</html>
