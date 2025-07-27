@@ -1,78 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RO Design & Jewelry</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Encabezado -->
   <header>
-    <img src="logo.png" alt="Logo RO">
-    <nav>
-      <ul>
-        <li><a href="#hero">Inicio</a></li>
-        <li><a href="#coleccion">Colección</a></li>
-        <li><a href="#favoritos">Favoritos Eternos</a></li>
-        <li><a href="#nosotros">Sobre Nosotros</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
+    <div class="logo-container">
+      <img src="img/logo-ro.png" alt="Logo" class="logo" />
+      <h1 class="slogan">NO SOLO VENDEMOS JOYAS – <span>DISEÑAMOS TUS IDEAS</span></h1>
+    </div>
+    <nav class="nav-menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#materiales">Materiales</a>
+      <a href="#favoritos">Favoritos Eternos</a>
+      <a href="#colecciones">Colecciones</a>
+      <a href="#sobre-nosotros">Sobre Nosotros</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <section id="hero" class="hero">
-    <video autoplay muted loop id="introVideo">
-      <source src="intro.mp4" type="video/mp4">
-      Tu navegador no soporta video.
+  <!-- Sección Hero con video -->
+  <section id="inicio" class="hero-section">
+    <video autoplay muted loop class="hero-video">
+      <source src="video%20intro.mp4" type="video/mp4" />
+      Tu navegador no soporta videos HTML5.
     </video>
-    <div class="hero-text">
-      <h1>Diseños con historia</h1>
-      <p>Joyas que nacen del alma y brillan para siempre.</p>
+    <div class="hero-overlay">
+      <h2 class="hero-title">JOYERÍA CON SIGNIFICADO</h2>
+      <p class="hero-sub">Personaliza tu historia en oro y plata</p>
+      <a href="#colecciones" class="hero-btn">VER COLECCIONES</a>
     </div>
   </section>
 
-  <section id="coleccion" class="coleccion">
-    <h2>Nueva Colección</h2>
-    <p>Conecta con la energía de tu piedra y descubre diseños únicos.</p>
-    <button onclick="location.href='#comprar'">Ver Colección</button>
+  <!-- Sección Materiales -->
+  <section id="materiales" class="materials-section">
+    <h2>MATERIALES</h2>
+    <div class="materials-grid">
+      <div class="material-item">Oro 18k amarillo</div>
+      <div class="material-item">Oro 18k blanco</div>
+      <div class="material-item">Oro 18k rosa</div>
+      <div class="material-item">Plata 950</div>
+      <div class="material-item">Diamantes certificados</div>
+      <div class="material-item">Zirconia premium</div>
+    </div>
   </section>
 
-  <section id="favoritos" class="favoritos">
-    <h2>Favoritos Eternos</h2>
-    <div class="carousel">
-      <!-- Ejemplo de producto -->
-      <div class="producto">
-        <img src="placeholder_light_gray_block.png" alt="Anillo Flow">
-        <p class="nombre">Anillo Flow</p>
-        <p class="precio">S/ 450</p>
+  <!-- Sección Favoritos -->
+  <section id="favoritos" class="favorites-section">
+    <h2>FAVORITOS ETERNOS</h2>
+    <div class="slider">
+      <button class="slider-btn left">&#10094;</button>
+      <div class="slider-track">
+        <!-- Tarjetas se llenarán con JS o manualmente -->
+        <div class="favorite-card">Anillo Eternidad</div>
+        <div class="favorite-card">Dije Amaru</div>
+        <div class="favorite-card">Pulsera RO</div>
       </div>
-      <!-- Repite según necesidad -->
+      <button class="slider-btn right">&#10095;</button>
     </div>
-    <button onclick="location.href='#coleccion'">Ver todos</button>
   </section>
 
-  <section id="nosotros" class="nosotros">
-    <h2>Sobre Nosotros</h2>
+  <!-- Sección Colecciones -->
+  <section id="colecciones" class="collections-section">
+    <h2>COLECCIONES DESTACADAS</h2>
+    <div class="collections-grid">
+      <div class="collection-card">
+        <img src="img/coleccion1.jpg" alt="Colección 1" />
+        <h3>Amuletos</h3>
+        <a href="#" class="collection-btn">Ver colección</a>
+      </div>
+      <div class="collection-card">
+        <img src="img/coleccion2.jpg" alt="Colección 2" />
+        <h3>Anillos de Compromiso</h3>
+        <a href="#" class="collection-btn">Ver colección</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Sobre Nosotros -->
+  <section id="sobre-nosotros" class="about-section">
+    <h2>SOBRE NOSOTROS</h2>
     <p>
-      En RO Design & Jewelry unimos tradición y tecnología para crear joyas personalizadas en Lima, Perú. Nuestro equipo utiliza diseño 3D de alta precisión y procesos innovadores para transformar tus ideas en piezas que cuentan historias. Cada creación refleja un estilo sofisticado, elaborado con dedicación y excelencia artesanal.
+      Somos una casa de diseño especializada en joyería personalizada con un enfoque contemporáneo y espíritu rebelde. Fusionamos tecnología de vanguardia con estética de lujo, elaborando cada pieza con atención al detalle y carácter propio.
     </p>
   </section>
 
-  <section id="contacto" class="contacto">
-    <h2>Contacto</h2>
-    <p>Agenda tu consulta personalizada o solicita más información:</p>
-    <ul>
-      <li>Email: <a href="mailto:ro.joyeria3d@gmail.com">ro.joyeria3d@gmail.com</a></li>
-      <li>WhatsApp: <a href="https://wa.me/51912832005" target="_blank">+51 912 832 005</a></li>
-      <li>Instagram: <a href="https://www.instagram.com/rojewelry3d" target="_blank">@rojewelry3d</a></li>
-      <li>Ubicación: Lima, Perú &ndash; Enviamos a todo el Perú e internacionalmente</li>
-    </ul>
+  <!-- Sección Contacto -->
+  <section id="contacto" class="contact-section">
+    <h2>CONTACTO</h2>
+    <p>Ubicación: Lima, Perú – Envíos a todo el país e internacional</p>
+    <p>Correo: <a href="mailto:ro.joyeria3d@gmail.com">ro.joyeria3d@gmail.com</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/rojewelry3d" target="_blank">@rojewelry3d</a></p>
+    <p>WhatsApp: <a href="https://wa.me/51912832005" target="_blank">+51 912 832 005</a></p>
   </section>
 
-  <footer>
-    <p>&copy; 2025 RO Design & Jewelry</p>
-  </footer>
-
-  <script src="script.js"></script>
+  <!-- Botón Volver arriba -->
+  <button id="backToTop" title="Volver arriba">&#8679;</button>
 </body>
 </html>
