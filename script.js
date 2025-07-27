@@ -1,53 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Navegación con scroll suave
+  /* ------------------------ NAVEGACIÓN SUAVE ------------------------ */
   const menuLinks = document.querySelectorAll('.nav-menu a');
-  menuLinks.forEach(link => {
-    link.addEventListener('click', e => {
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = link.getAttribute('href').substring(1);
       const target = document.getElementById(targetId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
       }
     });
   });
 
-  // Aparece botón 'Volver arriba'
-  const backToTopBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      backToTopBtn.style.display = 'flex';
-    } else {
-      backToTopBtn.style.display = 'none';
-    }
-  });
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  /* ------------------ ANIMACIÓN AL HACER SCROLL ------------------ */
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  document.querySelectorAll('.energy-card, .collection-card, .favorite-card').forEach((el) => {
+    observer.observe(el);
   });
 
-  // Slider Favoritos Eternos
+  /* ------------------- SLIDER DE FAVORITOS ------------------- */
   const track = document.querySelector('.slider-track');
   const btnPrev = document.querySelector('.slider-btn.left');
   const btnNext = document.querySelector('.slider-btn.right');
 
   if (track && btnPrev && btnNext) {
-    const scrollAmount = 260;
-    btnPrev.addEventListener('click', () => {
-      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    const scrollAmount = 240;
+    let isScrolling = false;
+
+    const handleScroll = (amount) => {
+      if (isScrolling) return;
+      isScrolling = true;
+      track.scrollBy({ left: amount, behavior: 'smooth' });
+      setTimeout(() => (isScrolling = false), 400);
+    };
+
+    btnPrev.addEventListener('click', () => handleScroll(-scrollAmount));
+    btnNext.addEventListener('click', () => handleScroll(scrollAmount));
+  }
+
+  /* ------------------- BOTÓN VOLVER ARRIBA ------------------- */
+  const backToTopBtn = document.getElementById('backToTop');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 600 ? 'flex' : 'none';
     });
-    btnNext.addEventListener('click', () => {
-      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  // Efecto aparición de tarjetas (Favoritos)
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+  /* ------------------ EFECTO HOVER EN ICONOS ------------------ */
+  const socialButtons = document.querySelectorAll('.contact-icons a');
+  socialButtons.forEach((btn) => {
+    btn.addEventListener('mouseenter', () => {
+      btn.classList.add('active');
     });
-  }, { threshold: 0.3 });
-
-  document.querySelectorAll('.favorite-card').forEach(card => observer.observe(card));
+    btn.addEventListener('mouseleave', () => {
+      btn.classList.remove('active');
+    });
+  });
 });
