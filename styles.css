@@ -1,45 +1,29 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* General */
+/* Estilos generales */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  color: #f5f5f5;
-  background-color: #0d0d0d;
-  line-height: 1.6;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
   background-color: #000;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #333;
 }
 
-header img {
-  height: 50px;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-nav a {
-  color: #d4af7f;
-  text-decoration: none;
-  font-weight: bold;
+.logo {
+  max-width: 130px;
+  height: auto;
+  border-radius: 50%;
+  border: 2px solid #d4af37;
 }
 
 .hero {
   position: relative;
-  height: 90vh;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -47,6 +31,10 @@ nav a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .hero-text {
@@ -54,93 +42,138 @@ nav a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #fff;
   text-align: center;
 }
 
 .hero-text h1 {
-  font-size: 3rem;
-  color: #fff;
+  font-size: 2.8rem;
+  color: #d4af37;
+  margin-bottom: 10px;
 }
 
 .hero-text p {
   font-size: 1.2rem;
-  color: #ccc;
+  color: #fff;
 }
 
-/* Secciones */
-section {
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #d4af37;
+}
+
+.energy-section, .about-section, .favorites-section {
   padding: 60px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-h2 {
-  font-size: 2.5rem;
-  color: #d4af7f;
-  margin-bottom: 20px;
   text-align: center;
 }
 
-button {
-  padding: 12px 25px;
-  background-color: #d4af7f;
-  color: #000;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: 0.3s ease;
-  display: block;
+.energy-section h2, .about-section h2, .favorites-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  color: #d4af37;
+}
+
+.energy-card {
+  background-color: #111;
+  border: 1px solid #333;
+  padding: 20px;
   margin: 20px auto;
+  max-width: 600px;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
 }
 
-button:hover {
-  background-color: #b28f5e;
+.energy-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.carousel {
+.slider-section {
+  position: relative;
+  padding: 60px 20px;
+  background-color: #111;
+  text-align: center;
+}
+
+.slider-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  color: #d4af37;
+}
+
+.slider-track {
   display: flex;
   overflow-x: auto;
+  scroll-behavior: smooth;
   gap: 20px;
+  padding: 20px 0;
 }
 
-.producto {
-  min-width: 200px;
-  background-color: #1a1a1a;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
+.slider-track::-webkit-scrollbar {
+  display: none;
 }
 
-.producto img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.producto .nombre {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.producto .precio {
-  color: #d4af7f;
-  margin-top: 5px;
-}
-
-.contacto ul {
-  list-style: none;
-  padding-left: 0;
-  font-size: 1.1rem;
-}
-
-.contacto a {
-  color: #d4af7f;
-  text-decoration: none;
-}
-
-footer {
-  background-color: #000;
-  text-align: center;
+.slider-item {
+  min-width: 240px;
+  background-color: #222;
   padding: 20px;
-  color: #aaa;
+  border-radius: 12px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider-btn.left {
+  left: 10px;
+}
+
+.slider-btn.right {
+  right: 10px;
+}
+
+#backToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #d4af37;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 100;
 }
