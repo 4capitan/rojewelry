@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* Desplazamiento suave para los enlaces del menú */
+  /* ------------------------ NAVEGACIÓN SUAVE ------------------------ */
   const menuLinks = document.querySelectorAll('.nav-menu a');
   menuLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.getElementById(targetId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
       }
     });
   });
 
-  /* Observador para animar la aparición de tarjetas al hacer scroll */
+  /* ------------------ ANIMACIÓN AL HACER SCROLL ------------------ */
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -21,38 +23,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     },
-    {
-      threshold: 0.2,
-    }
+    { threshold: 0.2 }
   );
+
   document.querySelectorAll('.energy-card').forEach((el) => {
     observer.observe(el);
   });
 
-  /* Lógica del slider de favoritos */
+  /* ------------------- SLIDER DE FAVORITOS ------------------- */
   const track = document.querySelector('.slider-track');
   const btnPrev = document.querySelector('.slider-btn.left');
   const btnNext = document.querySelector('.slider-btn.right');
+
   if (track && btnPrev && btnNext) {
-    const scrollAmount = 240; // cantidad de desplazamiento en px
-    btnPrev.addEventListener('click', () => {
-      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
-    btnNext.addEventListener('click', () => {
-      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
+    const scrollAmount = 240;
+    let isScrolling = false;
+
+    const handleScroll = (amount) => {
+      if (isScrolling) return;
+      isScrolling = true;
+      track.scrollBy({ left: amount, behavior: 'smooth' });
+      setTimeout(() => (isScrolling = false), 400);
+    };
+
+    btnPrev.addEventListener('click', () => handleScroll(-scrollAmount));
+    btnNext.addEventListener('click', () => handleScroll(scrollAmount));
   }
 
-  /* Botón volver arriba */
+  /* ------------------- BOTÓN VOLVER ARRIBA ------------------- */
   const backToTopBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 600) {
-      backToTopBtn.style.display = 'flex';
-    } else {
-      backToTopBtn.style.display = 'none';
-    }
-  });
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 600 ? 'flex' : 'none';
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 });
